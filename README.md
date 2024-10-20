@@ -20,6 +20,28 @@ and some configuration files for those services.
 The database is prepopulated with a user and a Mautic database as well as the Mautic DB schema,
 so you don't have to go through Mautic's installation (wizard) process.
 
+# How to use:
+## Deploy from DockerHub
+The easiest way to use this image is to deploy it directly from the Docker Hub, use this command:
+docker run -d
+## Clone this repo and build
+
+
+
+How to use:
+Run from docker hub (recommended)
+
+docker run -d --name KISSmauticDKR -p 8080:80 martechws/kiss-mautic:5.1.1 Use your browser to navigate to http://localhost:8080
+To login into the container:
+
+docker exec -ti KISSmauticDKR bash
+Build locally
+git clone Martech-WorkShop/KISSMauticDKR docker build -f 511.Dockerfile . -t KISSmauticDKR:5.1.1 docker run -d --name KISSmauticDKR -p 8080:80 martechws/kiss-mautic:5.1.1 docker exec -ti KISSmauticDKR bash
+
+
+
+
+
 ## Intended uses: 
  - A simple way to test Mautic, pull & play.
  - A live overview of Mautic requirements.

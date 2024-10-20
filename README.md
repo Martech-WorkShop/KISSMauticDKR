@@ -28,16 +28,13 @@ Intended uses:
 It is NOT meant as a production ready image.
 
 If you have any ideas how to make it clearer or simpler, please send me an email, submit a PR or an Issue.
-If you have ideas about how to make it better, please consider one of this other repos: 
-Mautic DKR Advanced. For production deployments. (Comming soon)
-Mautic DKR DEV. For development stacks. (Comming soon-er or later)
 
 We use ARGuments to parametrize the build-time parameters.
 While Debian is the only OS supported by this Dockerfile,
 you should be able to try other versions of Debian by adjusting the OS_VER ARG.
 
 This particular Dockerfile is intended for documentation.
-There is a properly optimized verion of this dockerfile without comments and RUN commands grouped.
+There is a properly optimized verion of this dockerfile without comments and with RUN commands grouped.
 
 All the files for this dockerfile are on this GitHub repository:
 https://github.com/Martech-WorkShop/toolBelt
@@ -82,3 +79,5 @@ https://github.com/Martech-WorkShop/toolBelt
                                                                |___/ 
                                                                          
 ```
+
+

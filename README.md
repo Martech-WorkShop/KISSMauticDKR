@@ -12,14 +12,15 @@ This Dockerfile concentrates on simplicity and convenience for the person deploy
 as well as clarity and verboseness for those wanting to understand what is going in the container.
 
 This adds a bit of complexity on the dockerfile itself, and breaks the one service per 
-container rule, by design. It installs all the components required to run Mautic in one single
-Docker container. It deploys Apache2, PHP-FPM, MariaDB and Mautic, as well as many required packages
+container rule, by design.
+It installs all the components required to run Mautic in one single Docker container.
+It deploys Apache2, PHP-FPM, MariaDB and Mautic, as well as many required packages
 and some configuration files for those services.
 
-The database is prepopulated with a user and a Mautic database as well as the Mautic DB schema, so
-you don't have to go through Mautic's installation process.
+The database is prepopulated with a user and a Mautic database as well as the Mautic DB schema,
+so you don't have to go through Mautic's installation (wizard) process.
 
-Intended uses: 
+## Intended uses: 
  - A simple way to test Mautic, pull & play.
  - A live overview of Mautic requirements.
  - A starting point for Mautic code exploration and tinkering.

@@ -6,13 +6,37 @@
               |_|\_\___|____/____/|_| |_| |_|\__,_|\__,_|\__|_|\___|____/|_|\_\_| \_\
 
 ```
-# Pull & Play, very verbose, KISS Dockerfile for Mautic 5.1.1
+# Pull & Play, very verbose, KISS Dockerfile for Mautic 5.2.1
+
+All in one, batteries included, single-container implementation of a full Mautic server.
+
+"Latest" currently includes:
+- Debian 12-slim
+- Mariadb 11.4 LTS
+- Apache 2.4
+- PHP 8.3-FPM
+- Mautic 5.2.1
+
+Follows KISS principles from the perspective of the person deploying the container, which increases the complexity of the Dockerfile itself. The Dockerfile is extremely verbose and not optimized for speed/size, this is intentional, so anyone can easily modify it.
+
+Here is the GitHub repo with the Dockerfile and other scripts used to build the image: https://github.com/Martech-WorkShop/KISSMauticDKR⁠⁠
+It also uses configuration files and scripts from the toolBelt, found at: https://github.com/Martech-WorkShop/toolBelt⁠martech.ws⁠
+Martech-WorkShop Check the blog for articles and news: https://martech.ws
+⁠as well as the Martech WorkShop YouTube channel: https://www.youtube.com
+@MartechWorkShop⁠ ⁠ github@martech.ws
+https://martech.ws
+X: ⁠@MartechWorkShop
+https://mauteam.org
+⁠https://mktg.dev⁠⁠
 
 This Dockerfile concentrates on simplicity and convenience for the person deploying the image,
 as well as clarity and verboseness for those wanting to understand what is going in the container.
 
-This adds a bit of complexity on the dockerfile itself, and breaks the one service per 
+This adds quite a lot of complexity on the dockerfile itself, and breaks the one service per 
 container rule, by design.
+The dockerfile is also not optimized for compilation speed or size, having countless lines for running
+commands separatedly, so it is easier to modify by anyone.
+
 It installs all the components required to run Mautic in one single Docker container.
 It deploys Apache2, PHP-FPM, MariaDB and Mautic, as well as many required packages
 and some configuration files for those services.
@@ -26,21 +50,17 @@ The easiest way to use this image is to deploy it directly from the Docker Hub, 
 docker run -d
 ## Clone this repo and build
 
-
-
 How to use:
 Run from docker hub (recommended)
 
-docker run -d --name KISSmauticDKR -p 8080:80 martechws/kiss-mautic:5.1.1 Use your browser to navigate to http://localhost:8080
+docker run -d --name KISSmauticDKR -p 8080:80 martechws/kiss-mautic:latest
+Use your browser to navigate to http://localhost:8080
 To login into the container:
 
 docker exec -ti KISSmauticDKR bash
+
 Build locally
-git clone Martech-WorkShop/KISSMauticDKR docker build -f 511.Dockerfile . -t KISSmauticDKR:5.1.1 docker run -d --name KISSmauticDKR -p 8080:80 martechws/kiss-mautic:5.1.1 docker exec -ti KISSmauticDKR bash
-
-
-
-
+git clone Martech-WorkShop/KISSMauticDKR docker build -f 521.Dockerfile . -t KISSmauticDKR:5.2.1 docker run -d --name KISSmauticDKR -p 8080:80 martechws/kiss-mautic:5.2.1 docker exec -ti KISSmauticDKR bash
 
 ## Intended uses: 
  - A simple way to test Mautic, pull & play.
@@ -102,5 +122,4 @@ https://github.com/Martech-WorkShop/toolBelt
                                                                |___/ 
                                                                          
 ```
-
 

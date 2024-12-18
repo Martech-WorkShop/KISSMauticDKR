@@ -173,7 +173,7 @@ RUN wget -O  /etc/apache2/apache2.conf https://raw.github.com/Martech-WorkShop/t
 # Configuration for Apache's Event MPM
 RUN wget -O /etc/apache2/mods-enabled/mpm_event.conf https://raw.github.com/Martech-WorkShop/toolBelt/Prod/Mautic/conf/apache/mpm_event.conf
 # Configuration for the Apache2 Vhost.
-RUN wget -O /etc/apache2/sites-available/000-default.conf https://raw.github.com/Martech-WorkShop/toolBelt/Prod/Mautic/conf/apache/000-default.conf
+RUN wget -O /etc/apache2/sites-available/000-default.conf https://raw.github.com/Martech-WorkShop/toolBelt/Prod/Mautic/conf/apache/000-default.conf-8.3
 # Configuration for FPM
 RUN wget -O /etc/php/8.3/fpm/pool.d/www.conf https://raw.github.com/Martech-WorkShop/toolBelt/Prod/Mautic/conf/fpm/www.conf-8.3
 # Configuration for PHP.

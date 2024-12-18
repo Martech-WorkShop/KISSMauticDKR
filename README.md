@@ -19,7 +19,9 @@ All in one, batteries included, single-container implementation of a full Mautic
 
 Follows KISS principles from the perspective of the person deploying the container, which increases the complexity of the Dockerfile itself. The Dockerfile is extremely verbose and not optimized for speed/size, this is intentional, so anyone can easily modify it.
 
-Here is the GitHub repo with the Dockerfile and other scripts used to build the image: https://github.com/Martech-WorkShop/KISSMauticDKR⁠⁠
+Here is the GitHub repo with the Dockerfile and other scripts used to build the image:
+- https://github.com/Martech-WorkShop/KISSMauticDKR
+
 It also uses configuration files and scripts from the toolBelt, found at: https://github.com/Martech-WorkShop/toolBelt⁠martech.ws⁠
 Martech-WorkShop Check the blog for articles and news: https://martech.ws
 ⁠as well as the Martech WorkShop YouTube channel: https://www.youtube.com

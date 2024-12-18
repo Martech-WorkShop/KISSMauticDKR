@@ -326,7 +326,7 @@ curl -f http://localhost \
 
 # Specify the command to run when the container is started.
 # This starts MariaDB, PHP-FPM, Apache and keeps the container running.
-CMD ["/start.sh"]
+CMD ["/start-8.3.sh"]
 
 
 # ToDo:

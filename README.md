@@ -84,6 +84,14 @@ There is a properly optimized verion of this dockerfile without comments and wit
 All the files for this dockerfile are on this GitHub repository:
 https://github.com/Martech-WorkShop/toolBelt
 
+## Contributors: 
+    - Writing new Dockerfiles for Open-Martech Software.
+    - Writing Docker Compose files for Open-Martech Software.
+    - Improving the existing files.
+ -- > Automating image generation and publishing process.
+ -- > Writing tests, automating testing.
+   
+
 ```
 
 

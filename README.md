@@ -86,9 +86,13 @@ https://github.com/Martech-WorkShop/toolBelt
 
 ## Contributors:
 We need help extending the KISS---DKR goodness to other projects, bringing simplicity to instaling and managing open-martech software.
+
     - Writing new Dockerfiles for Open-Martech Software.
+    
     - Writing Docker Compose files for Open-Martech Software.
+    
     - Improving the existing files.
+    
  -- > Automating image generation and publishing process.
  
  -- > Writing tests, automating testing.

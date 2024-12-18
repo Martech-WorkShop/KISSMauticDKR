@@ -84,11 +84,13 @@ There is a properly optimized verion of this dockerfile without comments and wit
 All the files for this dockerfile are on this GitHub repository:
 https://github.com/Martech-WorkShop/toolBelt
 
-## Contributors: 
+## Contributors:
+We need help extending the KISS---DKR goodness to other projects, bringing simplicity to instaling and managing open-martech software.
     - Writing new Dockerfiles for Open-Martech Software.
     - Writing Docker Compose files for Open-Martech Software.
     - Improving the existing files.
  -- > Automating image generation and publishing process.
+ 
  -- > Writing tests, automating testing.
    
 
@@ -130,6 +132,6 @@ https://github.com/Martech-WorkShop/toolBelt
   |_| |_| |_|\__,_|\__,_|\__\___|\__,_|_| |_| |_|(_) \___/|_|  \__, |
                                                                 __/ |
                                                                |___/ 
-                                                                         
+
 ```
 

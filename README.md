@@ -6,7 +6,7 @@
               |_|\_\___|____/____/|_| |_| |_|\__,_|\__,_|\__|_|\___|____/|_|\_\_| \_\
 
 ```
-# Pull & Play, very verbose, KISS Dockerfile for Mautic 5.2.1
+# Pull & Play, very verbose, KISS Dockerfiles for Mautic
 
 All in one, batteries included, single-container implementation of a full Mautic server.
 

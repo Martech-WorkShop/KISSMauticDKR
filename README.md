@@ -143,7 +143,11 @@ We need help extending the KISS---DKR goodness to other projects, bringing simpl
 
 ToDo:
 
+
 1 - Reorganize the Git directory structure so the additional files, required for building the image, are present on the GitHub repoi too.
+
 2 - Automate builds
+
 3 - Automate tests
+
 4 - Automate image build and push tothe Docker Hub. 

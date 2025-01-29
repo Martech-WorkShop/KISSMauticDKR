@@ -15,7 +15,7 @@ All in one, batteries included, single-container implementation of a full Mautic
 - Mariadb 11.4 LTS
 - Apache 2.4
 - PHP 8.3-FPM
-- Mautic 5.2.1
+- Mautic 5.2.2
 
 Follows KISS principles from the perspective of the person deploying the container, which increases the complexity of the Dockerfile itself. The Dockerfile is extremely verbose and not optimized for speed/size, this is intentional, so anyone can easily modify it.
 
@@ -49,6 +49,7 @@ so you don't have to go through Mautic's installation (wizard) process.
 # How to use:
 ## Deploy from DockerHub
 The easiest way to use this image is to deploy it directly from the Docker Hub, use this command:
+
 docker run -d
 ## Clone this repo and build
 
@@ -56,12 +57,15 @@ How to use:
 Run from docker hub (recommended)
 
 docker run -d --name KISSmauticDKR -p 8080:80 martechws/kiss-mautic:latest
+
 Use your browser to navigate to http://localhost:8080
+
 To login into the container:
 
 docker exec -ti KISSmauticDKR bash
 
-Build locally
+Build locally:
+
 git clone Martech-WorkShop/KISSMauticDKR docker build -f 521.Dockerfile . -t KISSmauticDKR:5.2.1 docker run -d --name KISSmauticDKR -p 8080:80 martechws/kiss-mautic:5.2.1 docker exec -ti KISSmauticDKR bash
 
 ## Intended uses: 
@@ -137,3 +141,9 @@ We need help extending the KISS---DKR goodness to other projects, bringing simpl
 
 ```
 
+ToDo:
+
+1 - Reorganize the Git directory structure so the additional files, required for building the image, are present on the GitHub repoi too.
+2 - Automate builds
+3 - Automate tests
+4 - Automate image build and push tothe Docker Hub. 

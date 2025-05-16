@@ -60,7 +60,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Define versions for the different components of the stack.
 ARG PHP_VER=8.3
 ARG MARIADB_VER=11.4
-ARG MAUTIC_VER=5.2.2
+ARG MAUTIC_VER=5.8.4
 
 # Define parameters for the Mautic database
 ENV MAUTIC_DB_NAME=mautic-db
@@ -187,8 +187,8 @@ RUN wget -O /etc/mysql/mariadb.conf.d/50-server.cnf https://raw.github.com/Marte
 
 # This file contains the Mautic cronjobs
 RUN wget https://raw.github.com/Martech-WorkShop/toolBelt/Prod/Mautic/conf/cron/cronjobs
-COPY assets/mauticdb-dump.sql /mauticdb-dump.sql
-COPY assets/local.php /var/www/html/config/local.php
+COPY mauticdb-dump.sql /mauticdb-dump.sql
+COPY local.php /var/www/html/config/local.php
 
 
 # --->>   Make the CLI prettier   <<---

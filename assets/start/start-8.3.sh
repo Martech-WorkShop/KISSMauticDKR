@@ -43,7 +43,19 @@ mariadb -u root -e "$GRANT_PRIVILEGES_CMD"
 mariadb -u root -e "$FLUSH_PRIVILEGES_CMD"
 
 cd /
-mysql -u root -p"$MAUTIC_DB_PASSWORD" $MAUTIC_DB_NAME < /mauticdb-dump.sql
+echo "Attempting to import database from /mauticdb-dump.sql..."
+if [ -f "/mauticdb-dump.sql" ] && [ -r "/mauticdb-dump.sql" ]; then
+    echo "SQL dump file /mauticdb-dump.sql found and is readable."
+    mysql -u root -p"$MAUTIC_DB_PASSWORD" "$MAUTIC_DB_NAME" < /mauticdb-dump.sql
+    MYSQL_EXIT_CODE=$?
+    if [ $MYSQL_EXIT_CODE -eq 0 ]; then
+        echo "Database import completed successfully."
+    else
+        echo "ERROR: Database import failed with exit code $MYSQL_EXIT_CODE."
+    fi
+else
+    echo "ERROR: SQL dump file /mauticdb-dump.sql not found or not readable."
+fi
 
 ###----------------------------------###
 ###    Keep the container running    ###

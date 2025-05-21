@@ -43,7 +43,7 @@ mariadb -u root -e "$GRANT_PRIVILEGES_CMD"
 mariadb -u root -e "$FLUSH_PRIVILEGES_CMD"
 
 cd /
-mysql -u root -p"$MAUTIC_DB_PASSWORD" $MAUTIC_DB_NAME < mauticdb-dump.sql
+mysql -u root -p"$MAUTIC_DB_PASSWORD" $MAUTIC_DB_NAME < /mauticdb-dump.sql
 
 ###----------------------------------###
 ###    Keep the container running    ###

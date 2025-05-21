@@ -192,16 +192,8 @@ RUN wget -O ~/.bashrc https://raw.github.com/Martech-WorkShop/toolBelt/Prod/Host
 # This file greets you when you login to your Mautic container.
 RUN wget -O /usr/local/bin/hi5 https://raw.github.com/Martech-WorkShop/toolBelt/Prod/Host/script/hi5
 
-
-# --->>   Docker related files   <<---
-
 # This file contains the configuration for supervisor.
 #RUN wget https://files.mktg.dev/pub/dkr/511/supervisord.conf -O /etc/supervisor/conf.d/supervisord.conf
-# This is the Docker entrypoint script.
-RUN wget https://files.mktg.dev/pub/dkr/511/start-8.3.sh
-# This is are SQL commands to create the initial database.
-# RUN wget https://files.mktg.dev/pub/dkr/511/init-db.sql
-
 
 # --->>   Admin aliases and scripts   <<---
 

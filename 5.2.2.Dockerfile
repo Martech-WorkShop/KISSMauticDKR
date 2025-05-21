@@ -187,8 +187,8 @@ RUN wget -O /etc/mysql/mariadb.conf.d/50-server.cnf https://raw.github.com/Marte
 
 # This file contains the Mautic cronjobs
 RUN wget https://raw.github.com/Martech-WorkShop/toolBelt/Prod/Mautic/conf/cron/cronjobs
-COPY assets/mauticdb-dump.sql /mauticdb-dump.sql
-COPY assets/local.php /var/www/html/config/local.php
+COPY mauticdb-dump.sql /mauticdb-dump.sql
+COPY local.php /var/www/html/config/local.php
 
 
 # --->>   Make the CLI prettier   <<---
@@ -260,7 +260,7 @@ RUN chown -R www-data:www-data /run/php
 # COPY init-db.sql /docker-entrypoint-initdb.d/
 
 # Expose MariaDB port and HTTP port
-EXPOSE 3306
+# EXPOSE 3306
 EXPOSE 80
 
 # Enable if you want one shared codebase for all cotainers.

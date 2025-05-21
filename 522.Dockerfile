@@ -260,7 +260,7 @@ RUN chown -R www-data:www-data /run/php
 # COPY init-db.sql /docker-entrypoint-initdb.d/
 
 # Expose MariaDB port and HTTP port
-EXPOSE 3306
+# EXPOSE 3306
 EXPOSE 80
 
 # Enable if you want one shared codebase for all cotainers.

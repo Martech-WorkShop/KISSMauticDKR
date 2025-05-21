@@ -168,18 +168,12 @@ RUN a2enconf php8.3-fpm
 
 # --->>   Configuration for components of the stack   <<---
 
-# Configuration for Apache2
 RUN wget -O  /etc/apache2/apache2.conf https://raw.github.com/Martech-WorkShop/toolBelt/Prod/Mautic/conf/apache/apache2.conf
-# Configuration for Apache's Event MPM
 RUN wget -O /etc/apache2/mods-enabled/mpm_event.conf https://raw.github.com/Martech-WorkShop/toolBelt/Prod/Mautic/conf/apache/mpm_event.conf
-# Configuration for the Apache2 Vhost.
-RUN wget -O /etc/apache2/sites-available/000-default.conf https://raw.github.com/Martech-WorkShop/toolBelt/Prod/Mautic/conf/apache/000-default.conf
-# Configuration for FPM
+RUN wget -O /etc/apache2/sites-available/000-default.conf https://raw.github.com/Martech-WorkShop/toolBelt/Prod/Mautic/conf/apache/000-default-fpm-8.3.conf
 RUN wget -O /etc/php/8.3/fpm/pool.d/www.conf https://raw.github.com/Martech-WorkShop/toolBelt/Prod/Mautic/conf/fpm/www.conf-8.3
-# Configuration for PHP.
 RUN wget -O /etc/php/8.3/fpm/php.ini https://raw.github.com/Martech-WorkShop/toolBelt/Prod/Mautic/conf/php/php.ini
 RUN cp /etc/php/8.3/fpm/php.ini /etc/php/8.3/cli/php.ini
-# Configuration for MariaDB
 RUN wget -O /etc/mysql/mariadb.conf.d/50-server.cnf https://raw.github.com/Martech-WorkShop/toolBelt/Prod/Mautic/conf/mariadb/50-server.cnf
 
 
@@ -189,14 +183,14 @@ RUN wget -O /etc/mysql/mariadb.conf.d/50-server.cnf https://raw.github.com/Marte
 RUN wget https://raw.github.com/Martech-WorkShop/toolBelt/Prod/Mautic/conf/cron/cronjobs
 COPY assets/5.2.5/mautic-5.2.5.sql /mauticdb-dump.sql
 COPY assets/5.2.5/mautic-5.2.5-local.php /var/www/html/config/local.php
-
+COPY assets/start/start-8.3.sh
 
 # --->>   Make the CLI prettier   <<---
 
 # This file makes your prompt sexier.
-RUN wget -O ~/.bashrc https://raw.github.com/Martech-WorkShop/toolBelt/Prod/Base/script/bashrc
+RUN wget -O ~/.bashrc https://raw.github.com/Martech-WorkShop/toolBelt/Prod/Host/script/bashrc
 # This file greets you when you login to your Mautic container.
-RUN wget -O /usr/local/bin/hi5 https://raw.github.com/Martech-WorkShop/toolBelt/Prod/Base/script/hi5
+RUN wget -O /usr/local/bin/hi5 https://raw.github.com/Martech-WorkShop/toolBelt/Prod/Host/script/hi5
 
 
 # --->>   Docker related files   <<---
@@ -205,7 +199,7 @@ RUN wget -O /usr/local/bin/hi5 https://raw.github.com/Martech-WorkShop/toolBelt/
 #RUN wget https://files.mktg.dev/pub/dkr/511/supervisord.conf -O /etc/supervisor/conf.d/supervisord.conf
 # This is the Docker entrypoint script.
 RUN wget https://files.mktg.dev/pub/dkr/511/start-8.3.sh
-# This is the SQL commands to vreate the initial database.
+# This is are SQL commands to create the initial database.
 # RUN wget https://files.mktg.dev/pub/dkr/511/init-db.sql
 
 

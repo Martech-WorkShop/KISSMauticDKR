@@ -63,9 +63,9 @@ ARG MARIADB_VER=11.4
 ARG MAUTIC_VER=5.2.5
 
 # Define parameters for the Mautic database
-ENV MAUTIC_DB_NAME=mautic-db
-ENV MAUTIC_DB_USER=mautic-db-user
-ENV MAUTIC_DB_PASSWORD=mautic-strong-password
+ENV MAUTIC_DB_NAME=mautic_db
+ENV MAUTIC_DB_USER=mautic_user
+ENV MAUTIC_DB_PASSWORD=K5cabR0AXl3kcHFWib6Zwl4wM68iTuIPC94vcXp5poE=
 ENV MAUTIC_LOGIN=ChangeMeRightNow!
 ENV MAUTIC_LOGIN_PWD=ChangeMeRightNow!
 

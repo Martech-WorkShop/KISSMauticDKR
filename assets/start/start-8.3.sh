@@ -24,7 +24,7 @@ service apache2 start
 # so let's make sure MariaDB is running...
 while ! mariadb-admin ping -h localhost --silent; do
   echo "Waiting for MariaDB to be ready..."
-  sleep 1
+  sleep 2
 done
 
 # We use the variables previously defined on the Dockerfile:
@@ -37,21 +37,32 @@ GRANT_PRIVILEGES_CMD="GRANT ALL PRIVILEGES ON \`$MAUTIC_DB_NAME\`.* TO \`$MAUTIC
 FLUSH_PRIVILEGES_CMD="FLUSH PRIVILEGES;"
 
 # Execute the SQL commands.
+echo "Executing: $CREATE_DB_CMD"
 mariadb -u root -e "$CREATE_DB_CMD"
+if [ $? -ne 0 ]; then echo "ERROR: Failed to execute CREATE_DB_CMD"; else echo "CREATE_DB_CMD successful."; fi
+
+echo "Executing: $CREATE_USER_CMD"
 mariadb -u root -e "$CREATE_USER_CMD"
+if [ $? -ne 0 ]; then echo "ERROR: Failed to execute CREATE_USER_CMD"; else echo "CREATE_USER_CMD successful."; fi
+
+echo "Executing: $GRANT_PRIVILEGES_CMD"
 mariadb -u root -e "$GRANT_PRIVILEGES_CMD"
+if [ $? -ne 0 ]; then echo "ERROR: Failed to execute GRANT_PRIVILEGES_CMD"; else echo "GRANT_PRIVILEGES_CMD successful."; fi
+
+echo "Executing: $FLUSH_PRIVILEGES_CMD"
 mariadb -u root -e "$FLUSH_PRIVILEGES_CMD"
+if [ $? -ne 0 ]; then echo "ERROR: Failed to execute FLUSH_PRIVILEGES_CMD"; else echo "FLUSH_PRIVILEGES_CMD successful."; fi
 
 cd /
 echo "Attempting to import database from /mauticdb-dump.sql..."
 if [ -f "/mauticdb-dump.sql" ] && [ -r "/mauticdb-dump.sql" ]; then
     echo "SQL dump file /mauticdb-dump.sql found and is readable."
-    mysql -u root -p"$MAUTIC_DB_PASSWORD" "$MAUTIC_DB_NAME" < /mauticdb-dump.sql
-    MYSQL_EXIT_CODE=$?
-    if [ $MYSQL_EXIT_CODE -eq 0 ]; then
+    mariadb -u root -p"$MAUTIC_DB_PASSWORD" "$MAUTIC_DB_NAME" < /mauticdb-dump.sql
+    MARIADB_IMPORT_EXIT_CODE=$?
+    if [ $MARIADB_IMPORT_EXIT_CODE -eq 0 ]; then
         echo "Database import completed successfully."
     else
-        echo "ERROR: Database import failed with exit code $MYSQL_EXIT_CODE."
+        echo "ERROR: Database import failed with exit code $MARIADB_IMPORT_EXIT_CODE."
     fi
 else
     echo "ERROR: SQL dump file /mauticdb-dump.sql not found or not readable."

@@ -20,9 +20,6 @@ while ! mariadb-admin ping -h localhost --silent; do
 done
 
 # We use the variables previously defined on the Dockerfile:
-ENV MAUTIC_DB_NAME=mautic-db
-ENV MAUTIC_DB_USER=mautic-db-user
-ENV MAUTIC_DB_PASSWORD=mautic-strong-password
 CREATE_DB_CMD="CREATE DATABASE IF NOT EXISTS \`$MAUTIC_DB_NAME\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
 CREATE_USER_CMD="CREATE USER IF NOT EXISTS \`$MAUTIC_DB_USER\`@'%' IDENTIFIED BY '$MAUTIC_DB_PASSWORD';"
 GRANT_PRIVILEGES_CMD="GRANT ALL PRIVILEGES ON \`$MAUTIC_DB_NAME\`.* TO \`$MAUTIC_DB_USER\`@'%';"

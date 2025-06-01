@@ -181,8 +181,8 @@ RUN wget -O /etc/mysql/mariadb.conf.d/50-server.cnf https://raw.github.com/Marte
 
 # This file contains the Mautic cronjobs
 RUN wget https://raw.github.com/Martech-WorkShop/toolBelt/Prod/Mautic/conf/cron/cronjobs
-COPY assets/5.2.5/mautic-5.2.5.sql /mauticdb-dump.sql
-COPY assets/5.2.5/mautic-5.2.5-local.php /var/www/html/config/local.php
+COPY assets/5.2.6/mautic-5.2.6.sql /mauticdb-dump.sql
+COPY assets/5.2.6/mautic-5.2.6-local.php /var/www/html/config/local.php
 COPY assets/start/start-8.3.sh /start-8.3.sh
 
 # --->>   Make the CLI prettier   <<---

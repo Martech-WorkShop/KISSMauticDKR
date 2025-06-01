@@ -65,7 +65,7 @@ ARG MAUTIC_VER=5.2.6
 # Define parameters for the Mautic database
 ENV MAUTIC_DB_NAME=mautic_db
 ENV MAUTIC_DB_USER=mautic_user
-ENV MAUTIC_DB_PASSWORD=gUsk40gQHU5Kdx9FzEnrqXUQAK4y+yLama1ED1uj08o=
+ENV MAUTIC_DB_PASSWORD=eCeMG2jPArXKSmM1j+UtSvXfN0V0JADfa/opiF+KMOY=
 ENV MAUTIC_LOGIN=ChangeMeRightNow!
 ENV MAUTIC_LOGIN_PWD=ChangeMeRightNow!
 
